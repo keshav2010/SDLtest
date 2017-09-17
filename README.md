@@ -1,3 +1,3 @@
 #SDL2.0.5
 
-eeeeeeeee
+Use of pointers of type PlayerObject or EnemyObject causing application to crash
