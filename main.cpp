@@ -10,7 +10,7 @@ int SDL_main(int argc, char* argv[])
             game->handleEvent();
             game->update();
             game->render();
-            SDL_Delay(1);
+            SDL_Delay(12);
     }
     game->clean();
     delete game;
