@@ -1,6 +1,8 @@
 #ifndef GAME_H
 #define GAME_H
 
+#include "PlayerObject.h"
+
 #include<SDL2/SDL.h>
 class Game
 {
@@ -12,14 +14,13 @@ class Game
         void update();
         void clean();
         Game();
-    protected:
 
     private:
-
+        PlayerObject *player;
         int red,green,blue;
-
         SDL_Window *window;
         SDL_Renderer *renderer;
+        SDL_Rect *background_color;
 };
 
 #endif // GAME_H

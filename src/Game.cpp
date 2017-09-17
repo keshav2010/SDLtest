@@ -1,6 +1,10 @@
 #include "Game.h"
 #include<iostream>
 #include<SDL2/SDL.h>
+#include<SDL2/SDL_events.h>
+#include<SDL2/SDL_keyboard.h>
+#include "PlayerObject.h"
+
 using namespace std;
 Game::Game()
 {
@@ -23,12 +27,14 @@ int Game::init(char*title)
     }
     cout<<"Initialize Successful\n";
     isRunning=true;
+    player->init(0,0);
     return 1;//init completed without errors
 }
 void Game::handleEvent()
 {
     cout<<"HandleEvent Called\n";
     SDL_Event evt;
+
 	if(SDL_PollEvent(&evt))
 	{
 		switch(evt.type)
@@ -37,22 +43,61 @@ void Game::handleEvent()
 				isRunning=false;
 				cout<<" QUIT EVENT \n";
 				break;
-			default:
+            case SDL_KEYDOWN:
+            {
+
+                 SDL_Keycode keypressed=evt.key.keysym.sym;
+                if(keypressed==SDLK_ESCAPE){
+                    cout<<"escape pressed\n";
+                    isRunning=false;
+                }
+                else if(keypressed==SDLK_a)
+                {
+                    player->xpos-=2;//=player->xpos-1;
+                }
+                else if(keypressed==SDLK_d)
+                {
+                        player->xpos+=2;//=player->xpos+1;
+                }
+                else if(keypressed==SDLK_w)
+                {
+                    player->ypos-=2;
+                }
+                else if(keypressed==SDLK_s)
+                {
+                    player->ypos+=2;
+                }
+                break;
+            }
+            case SDL_KEYUP:
+            {
+                cout<<"key release detected\n";
+                break;
+            }
+            default:
 				break;
 		}
 	}
 }
 void Game::render()
-{
-    SDL_RenderClear(renderer);//clear
-    SDL_SetRenderDrawColor(renderer,red,green,blue,4);
+{   cout<<"RENDERING\n";
+
+    SDL_RenderClear(renderer);
+
+    SDL_SetRenderDrawColor(renderer,0,250,200,4);
+    player->render(renderer);
+    SDL_SetRenderDrawColor(renderer,0,0,0,4);
     SDL_RenderPresent(renderer); //presenting result onto the Display
+    cout<<"RENDER DONE\n";
 }
 void Game::update()
 {
     //mod 1000 to make sure values remain in range of int
-    red=(red+10)%256;
-    green=(green+5)%256;
-    blue=(blue+2)%256;
+    player->update(player->xpos,player->ypos);
     cout<<"UPDATING\n";
+}
+
+void Game::clean()
+{
+    player=nullptr;
 }
