@@ -1,8 +1,6 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include "PlayerObject.h"
-#include "EnemyObject.h"
 
 #include<SDL2/SDL.h>
 class Game
@@ -17,10 +15,6 @@ class Game
         Game();
 
     private:
-
-        //EnemyObject *enemy;
-        PlayerObject player;
-        EnemyObject obj2;
         int red,green,blue;
         SDL_Window *window;
         SDL_Renderer *renderer;
