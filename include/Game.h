@@ -1,7 +1,7 @@
 #ifndef GAME_H
 #define GAME_H
 
-
+#include<TextureManager.h>
 #include<SDL2/SDL.h>
 class Game
 {
@@ -15,7 +15,10 @@ class Game
         Game();
 
     private:
-        int red,green,blue;
+        int x,y;
+        int angle=0;
+        TextureManager textureManager;
+        int currentFrame;
         SDL_Window *window;
         SDL_Renderer *renderer;
         SDL_Rect *background_color;

@@ -34,15 +34,13 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="include/EnemyObject.h" />
 		<Unit filename="include/Game.h" />
 		<Unit filename="include/GameObject.h" />
-		<Unit filename="include/PlayerObject.h" />
+		<Unit filename="include/TextureManager.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="src/EnemyObject.cpp" />
 		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/GameObject.cpp" />
-		<Unit filename="src/PlayerObject.cpp" />
+		<Unit filename="src/TextureManager.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

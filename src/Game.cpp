@@ -7,8 +7,9 @@
 using namespace std;
 Game::Game()
 {
+    x=0;
+    y=0;
     isRunning=false;
-    red=green=blue=0;
 }
 int Game::init(char*title)
 {
@@ -24,6 +25,7 @@ int Game::init(char*title)
         cout<<"Unable to Create Renderer for window in Game Object \n"<<SDL_GetError();
         return 0;
     }
+    textureManager.load("res/sprite.bmp","animate",renderer);
     cout<<"Initialize Successful\n";
     isRunning=true;
     return 1;//init completed without errors
@@ -53,19 +55,23 @@ void Game::render()
     cout<<"RENDERING\n";
 
     SDL_RenderClear(renderer);
-
-    SDL_SetRenderDrawColor(renderer,255,0,0,4);
-
-    SDL_SetRenderDrawColor(renderer,0,0,0,4);
+    textureManager.draw("animate",x+100,y+100,64,64,renderer,SDL_FLIP_NONE,angle);
+    textureManager.draw("animate",x+100,y+190,angle%100,angle%100,renderer,SDL_FLIP_NONE,-1*angle);
+    SDL_SetRenderDrawColor(renderer,20,0,20,4);
     SDL_RenderPresent(renderer); //presenting result onto the Display
     cout<<"RENDER DONE\n";
 }
 void Game::update()
 {
+    x=(x+1)%2;
+    y=(y+1)%2;
+    angle=(angle+1)%361;
     cout<<"UPDATING\n";
 }
 
 void Game::clean()
 {
-
+    SDL_DestroyWindow(window);
+    SDL_DestroyRenderer(renderer);
+    SDL_Quit();
 }

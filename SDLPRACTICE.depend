@@ -6,14 +6,15 @@
 1505576025 d:\codeblocks_projects\sdlpractice\game.h
 	<SDL2/SDL.h>
 
-1506179156 source:d:\codeblocks_projects\sdlpractice\src\game.cpp
+1506202523 source:d:\codeblocks_projects\sdlpractice\src\game.cpp
 	"Game.h"
 	<iostream>
 	<SDL2/SDL.h>
 	<SDL2/SDL_events.h>
 	<SDL2/SDL_keyboard.h>
 
-1506179176 d:\codeblocks_projects\sdlpractice\include\game.h
+1506202652 d:\codeblocks_projects\sdlpractice\include\game.h
+	<TextureManager.h>
 	<SDL2/SDL.h>
 
 1506178887 d:\codeblocks_projects\sdlpractice\include\playerobject.h
@@ -40,11 +41,11 @@
 	<iostream>
 	<SDL2/SDL.h>
 
-1506179278 source:d:\codeblocks_projects\sdlpractice\src\texturemanager.cpp
+1506202640 source:d:\codeblocks_projects\sdlpractice\src\texturemanager.cpp
 	"TextureManager.h"
 	<map>
 
-1506179401 d:\codeblocks_projects\sdlpractice\include\texturemanager.h
+1506202582 d:\codeblocks_projects\sdlpractice\include\texturemanager.h
 	<map>
 	<SDL2/SDL.h>
 	<string>

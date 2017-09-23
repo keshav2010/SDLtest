@@ -27,7 +27,7 @@ bool TextureManager::load(string fileName,string id,SDL_Renderer* renderer)
     }
     return false;
 }
-void TextureManager::draw(string id,int x,int y,int width,int height, SDL_Renderer* renderer,SDL_RendererFlip flip)
+void TextureManager::draw(string id,int x,int y,int width,int height, SDL_Renderer* renderer,SDL_RendererFlip flip,int angle)
 {
     SDL_Rect srcRect;
     SDL_Rect destRect;
@@ -38,7 +38,7 @@ void TextureManager::draw(string id,int x,int y,int width,int height, SDL_Render
     destRect.x=x;
     destRect.y=y;
 
-    SDL_RenderCopyEx(renderer, textureMap[id], &srcRect, &destRect, 0,0, flip);
+    SDL_RenderCopyEx(renderer, textureMap[id], &srcRect, &destRect, angle,0, flip);
 }
 /*
     Intuition for the src AND dest Rectangles
@@ -46,7 +46,7 @@ void TextureManager::draw(string id,int x,int y,int width,int height, SDL_Render
     by changing x,y,w,h of sourceRect we can clip the sprite that is being displayed
     by changing the x,y,w,h of destRect we can alter the dimensions of the sprite and nothing will be clipped but only stretched
 */
-void TextureManager::drawFrame(string id,int x,int y,int width,int height,int currentRow,int currentFrame,SDL_Renderer* renderer,SDL_RendererFlip flip)
+void TextureManager::drawFrame(string id,int x,int y,int width,int height,int currentRow,int currentFrame,SDL_Renderer* renderer,SDL_RendererFlip flip,int angle)
 {
     SDL_Rect srcRect;
     SDL_Rect destRect;
@@ -56,5 +56,5 @@ void TextureManager::drawFrame(string id,int x,int y,int width,int height,int cu
     srcRect.h=destRect.h=height;
     destRect.x=x;
     destRect.y=y;
-    SDL_RenderCopyEx(renderer,textureMap[id],&srcRect,&destRect,0,0,flip);
+    SDL_RenderCopyEx(renderer,textureMap[id],&srcRect,&destRect,angle,0,flip);
 }
