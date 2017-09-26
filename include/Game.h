@@ -1,9 +1,7 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include "PlayerObject.h"
-#include "EnemyObject.h"
-
+#include<TextureManager.h>
 #include<SDL2/SDL.h>
 class Game
 {
@@ -17,11 +15,9 @@ class Game
         Game();
 
     private:
-
-        //EnemyObject *enemy;
-        PlayerObject player;
-        EnemyObject obj2;
-        int red,green,blue;
+        int x,y;
+        int angle=0;
+        int currentFrame;
         SDL_Window *window;
         SDL_Renderer *renderer;
         SDL_Rect *background_color;

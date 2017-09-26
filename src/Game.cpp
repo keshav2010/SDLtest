@@ -3,13 +3,13 @@
 #include<SDL2/SDL.h>
 #include<SDL2/SDL_events.h>
 #include<SDL2/SDL_keyboard.h>
-#include "PlayerObject.h"
 
 using namespace std;
 Game::Game()
 {
+    x=0;
+    y=0;
     isRunning=false;
-    red=green=blue=0;
 }
 int Game::init(char*title)
 {
@@ -25,13 +25,12 @@ int Game::init(char*title)
         cout<<"Unable to Create Renderer for window in Game Object \n"<<SDL_GetError();
         return 0;
     }
+    //textureManager.load("res/sprite.bmp","animate",renderer);
+    if(!TheTextureManager::Instance()->load("res/sprite.bmp","animate",renderer) )
+        return 0;
+
     cout<<"Initialize Successful\n";
     isRunning=true;
-
-    player.init(0,0);
-
-    //enemy->init(100,100);
-    obj2.init(100,100);cout<<"yo\n";
     return 1;//init completed without errors
 }
 void Game::handleEvent()
@@ -47,67 +46,35 @@ void Game::handleEvent()
 				isRunning=false;
 				cout<<" QUIT EVENT \n";
 				break;
-            case SDL_KEYDOWN:
-            {
-                SDL_Keycode keypressed=evt.key.keysym.sym;
-                if(keypressed==SDLK_ESCAPE){
-                    cout<<"escape pressed\n";
-                    isRunning=false;
-                }
-                else if(keypressed==SDLK_a)
-                {
-                    player.xpos-=2;//=player->xpos-1;
-                }
-                else if(keypressed==SDLK_d)
-                {
-                        player.xpos+=2;//=player->xpos+1;
-                }
-                else if(keypressed==SDLK_w)
-                {
-                    player.ypos-=2;
-                }
-                else if(keypressed==SDLK_s)
-                {
-                    player.ypos+=2;
-                }
-                break;
-            }
-            case SDL_KEYUP:
-            {
-                cout<<"key release detected\n";
-                break;
-            }
             default:
 				break;
 		}
 	}
 }
 void Game::render()
-{   cout<<"RENDERING\n";
+{
+
+    cout<<"RENDERING\n";
 
     SDL_RenderClear(renderer);
-
-    SDL_SetRenderDrawColor(renderer,0,250,200,4);
-    player.render(renderer);
-
-    SDL_SetRenderDrawColor(renderer,255,0,0,4);
-    obj2.render(renderer);
-
-    SDL_SetRenderDrawColor(renderer,0,0,0,4);
+    //textureManager.draw("animate",x+100,y+100,64,64,renderer,SDL_FLIP_NONE,angle);
+    //textureManager.draw("animate",x+100,y+190,64,64,renderer,SDL_FLIP_NONE,-angle*angle/7);
+    TheTextureManager::Instance()->draw("animate",0,0,128,82,renderer);
+    SDL_SetRenderDrawColor(renderer,20,0,20,4);
     SDL_RenderPresent(renderer); //presenting result onto the Display
     cout<<"RENDER DONE\n";
 }
 void Game::update()
 {
-    //mod 1000 to make sure values remain in range of int
-    player.update(player.xpos,player.ypos);
-    obj2.update(++obj2.xpos,++obj2.ypos);
+    x=(x+1)%2;
+    y=(y+1)%2;
+    angle=(angle+1)%361;
     cout<<"UPDATING\n";
 }
 
 void Game::clean()
 {
-//    player=nullptr;
-   // obj2=nullptr;
-   // enemy=nullptr;
+    SDL_DestroyWindow(window);
+    SDL_DestroyRenderer(renderer);
+    SDL_Quit();
 }

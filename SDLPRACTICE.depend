@@ -1,16 +1,52 @@
 # depslib dependency file v1.0
-1505578459 source:d:\codeblocks_projects\sdlpractice\main.cpp
+1505663707 source:d:\codeblocks_projects\sdlpractice\main.cpp
 	<SDL2/SDL.h>
 	<Game.h>
 
 1505576025 d:\codeblocks_projects\sdlpractice\game.h
 	<SDL2/SDL.h>
 
-1505579424 source:d:\codeblocks_projects\sdlpractice\src\game.cpp
+1506457934 source:d:\codeblocks_projects\sdlpractice\src\game.cpp
 	"Game.h"
 	<iostream>
 	<SDL2/SDL.h>
+	<SDL2/SDL_events.h>
+	<SDL2/SDL_keyboard.h>
 
-1505579440 d:\codeblocks_projects\sdlpractice\include\game.h
+1506459188 d:\codeblocks_projects\sdlpractice\include\game.h
+	<TextureManager.h>
 	<SDL2/SDL.h>
+
+1506178887 d:\codeblocks_projects\sdlpractice\include\playerobject.h
+	<SDL2/SDL.h>
+	<GameObject.h>
+
+1505663087 source:d:\codeblocks_projects\sdlpractice\src\playerobject.cpp
+	"PlayerObject.h"
+	<iostream>
+
+1506174971 d:\codeblocks_projects\sdlpractice\include\enemyobject.h
+	<SDL2/SDL.h>
+
+1505663649 source:d:\codeblocks_projects\sdlpractice\src\enemyobject.cpp
+	"EnemyObject.h"
+	<iostream>
+
+1506178922 d:\codeblocks_projects\sdlpractice\include\gameobject.h
+	<SDL2/SDL.h>
+	<string>
+
+1506178987 source:d:\codeblocks_projects\sdlpractice\src\gameobject.cpp
+	"GameObject.h"
+	<iostream>
+	<SDL2/SDL.h>
+
+1506458912 source:d:\codeblocks_projects\sdlpractice\src\texturemanager.cpp
+	"TextureManager.h"
+	<map>
+
+1506458933 d:\codeblocks_projects\sdlpractice\include\texturemanager.h
+	<map>
+	<SDL2/SDL.h>
+	<string>
 
