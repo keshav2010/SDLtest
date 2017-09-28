@@ -1,8 +1,10 @@
 #ifndef GAME_H
 #define GAME_H
-
+#include"GameObject.h"
+#include"Player.h"
 #include<TextureManager.h>
 #include<SDL2/SDL.h>
+#include<vector>
 class Game
 {
     public:
@@ -15,12 +17,13 @@ class Game
         Game();
 
     private:
-        int x,y;
-        int angle=0;
-        int currentFrame;
+        std::vector<GameObject*> gameObjects;
+
+        GameObject* po;
+        GameObject* go;
+
         SDL_Window *window;
         SDL_Renderer *renderer;
-        SDL_Rect *background_color;
 };
 
 #endif // GAME_H

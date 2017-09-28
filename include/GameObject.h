@@ -19,10 +19,16 @@
 class GameObject
 {
     public:
-        void load(int x,int y,int w,int h,std::string _textureID);
-        void draw(SDL_Renderer* objectRenderer);
-        void update();
-        void clean();
+        virtual void load(int x,int y,int w,int h,std::string _textureID);
+        virtual void draw(SDL_Renderer* objectRenderer);
+        virtual void update();
+        virtual void clean();
+        /*
+            virtual keyword ensures overriden behaviour is used
+            GameObject* po = new Player();
+            if virtual is not used, po->update() will call method of GameObject class
+                if virtual is used, po->update() will call method of Player class
+        */
     protected:
         std::string textureID; //fetches texture which is mapped to this key
         //SpriteSheet frame var

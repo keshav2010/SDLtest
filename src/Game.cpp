@@ -3,17 +3,14 @@
 #include<SDL2/SDL.h>
 #include<SDL2/SDL_events.h>
 #include<SDL2/SDL_keyboard.h>
-
 using namespace std;
 Game::Game()
 {
-    x=0;
-    y=0;
     isRunning=false;
 }
 int Game::init(char*title)
 {
-    window = SDL_CreateWindow(title,100,100,500,500,SDL_WINDOW_RESIZABLE);
+    window = SDL_CreateWindow(title,100,50,1000,600,SDL_WINDOW_RESIZABLE);
     if(window==NULL)
     {
         cout<<"Failed to Initialize Window in Game object\n"<<SDL_GetError();
@@ -28,6 +25,14 @@ int Game::init(char*title)
     //textureManager.load("res/sprite.bmp","animate",renderer);
     if(!TheTextureManager::Instance()->load("res/sprite.bmp","animate",renderer) )
         return 0;
+
+    po=new Player();
+    go=new GameObject();
+
+    go->load(15,100,128,82,"animate");
+    po->load(100,0,128,82,"animate");
+    gameObjects.push_back(po);
+    gameObjects.push_back(go);//enemy1);
 
     cout<<"Initialize Successful\n";
     isRunning=true;
@@ -53,22 +58,23 @@ void Game::handleEvent()
 }
 void Game::render()
 {
-
     cout<<"RENDERING\n";
-
     SDL_RenderClear(renderer);
-    //textureManager.draw("animate",x+100,y+100,64,64,renderer,SDL_FLIP_NONE,angle);
-    //textureManager.draw("animate",x+100,y+190,64,64,renderer,SDL_FLIP_NONE,-angle*angle/7);
-    TheTextureManager::Instance()->draw("animate",0,0,128,82,renderer);
-    SDL_SetRenderDrawColor(renderer,20,0,20,4);
+    for(std::vector<GameObject*>::size_type i=0;i!=gameObjects.size();i++)
+    {
+        cout<<"gameobject "<<i<<"th draw call \n";
+        gameObjects[i]->draw(renderer);
+         cout<<"gameobject "<<i<<"th draw call COMPLETE\n";
+    }
     SDL_RenderPresent(renderer); //presenting result onto the Display
     cout<<"RENDER DONE\n";
 }
 void Game::update()
 {
-    x=(x+1)%2;
-    y=(y+1)%2;
-    angle=(angle+1)%361;
+    for(vector<GameObject*>::size_type i=0;i!=gameObjects.size();i++)
+    {
+        gameObjects[i]->update();
+    }
     cout<<"UPDATING\n";
 }
 

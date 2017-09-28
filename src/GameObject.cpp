@@ -1,5 +1,6 @@
 #include "GameObject.h"
 #include<iostream>
+#include"TextureManager.h"
 #include<SDL2/SDL.h>
 using namespace std;
 
@@ -19,12 +20,16 @@ void GameObject::load(int x,int y,int w,int h,string _textureID)
 void GameObject::draw(SDL_Renderer* objectRenderer)
 {
     //handle render
+    //TheTextureManager::Instance()->drawFrame(textureID,posX,posY,width,height,currentRow,currentFrame,objectRenderer);
+    cout<<"GAMEOBJECT draw\n";
+    TheTextureManager::Instance()->draw(textureID,posX,posY,width,height,objectRenderer,SDL_FLIP_NONE);
 }
 void GameObject::update()
 {
    //handle member variables
+   posX++;
 }
-void clean()
+void GameObject::clean()
 {
     //handle clean
     cout<<"clean game object\n";
