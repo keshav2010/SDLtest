@@ -1,22 +1,23 @@
 # depslib dependency file v1.0
-1506601763 source:d:\codeblocks_projects\sdlpractice\main.cpp
+1506805411 source:d:\codeblocks_projects\sdlpractice\main.cpp
 	<SDL2/SDL.h>
 	<Game.h>
 
 1505576025 d:\codeblocks_projects\sdlpractice\game.h
 	<SDL2/SDL.h>
 
-1506603384 source:d:\codeblocks_projects\sdlpractice\src\game.cpp
+1506805385 source:d:\codeblocks_projects\sdlpractice\src\game.cpp
 	"Game.h"
 	<iostream>
 	<SDL2/SDL.h>
 	<SDL2/SDL_events.h>
 	<SDL2/SDL_keyboard.h>
 
-1506602451 d:\codeblocks_projects\sdlpractice\include\game.h
+1506805602 d:\codeblocks_projects\sdlpractice\include\game.h
 	"GameObject.h"
 	"Player.h"
 	<TextureManager.h>
+	"Enemy.h"
 	<SDL2/SDL.h>
 	<vector>
 
@@ -35,11 +36,12 @@
 	"EnemyObject.h"
 	<iostream>
 
-1506603677 d:\codeblocks_projects\sdlpractice\include\gameobject.h
+1506805547 d:\codeblocks_projects\sdlpractice\include\gameobject.h
 	<SDL2/SDL.h>
+	"LoaderParams.h"
 	<string>
 
-1506602559 source:d:\codeblocks_projects\sdlpractice\src\gameobject.cpp
+1506804102 source:d:\codeblocks_projects\sdlpractice\src\gameobject.cpp
 	"GameObject.h"
 	<iostream>
 	"TextureManager.h"
@@ -54,10 +56,30 @@
 	<SDL2/SDL.h>
 	<string>
 
-1506462494 d:\codeblocks_projects\sdlpractice\include\player.h
-	"GameObject.h"
+1506804833 d:\codeblocks_projects\sdlpractice\include\player.h
+	"SDLGameObject.h"
 
-1506603173 source:d:\codeblocks_projects\sdlpractice\src\player.cpp
+1506804823 source:d:\codeblocks_projects\sdlpractice\src\player.cpp
 	"Player.h"
 	<iostream>
+
+1506686077 d:\codeblocks_projects\sdlpractice\include\loaderparams.h
+	<string>
+
+1506803979 d:\codeblocks_projects\sdlpractice\include\sdlgameobject.h
+	"GameObject.h"
+
+1506805002 source:d:\codeblocks_projects\sdlpractice\src\enemy.cpp
+	"Enemy.h"
+
+1506804639 d:\codeblocks_projects\sdlpractice\include\enemy.h
+	"SDLGameObject.h"
+
+1506805241 source:d:\codeblocks_projects\sdlpractice\src\loaderparams.cpp
+	"LoaderParams.h"
+
+1506805509 source:d:\codeblocks_projects\sdlpractice\src\sdlgameobject.cpp
+	"SDLGameObject.h"
+	"TextureManager.h"
+	"Game.h"
 

@@ -4,13 +4,24 @@
 #include<SDL2/SDL_events.h>
 #include<SDL2/SDL_keyboard.h>
 using namespace std;
+Game* Game::gameInstance=0;
 Game::Game()
 {
     isRunning=false;
 }
-int Game::init(char*title)
+Game* Game::Instance()
 {
-    window = SDL_CreateWindow(title,100,50,1000,600,SDL_WINDOW_RESIZABLE);
+    if(gameInstance==0)
+    {
+        gameInstance=new Game();
+        return gameInstance;
+    }
+    return gameInstance;
+}
+SDL_Renderer* Game::getRenderer()const {return renderer;}
+int Game::init(char*title,int winX,int winY,int winW,int winH)
+{
+    window = SDL_CreateWindow(title,winX,winY,winW,winH,SDL_WINDOW_RESIZABLE);
     if(window==NULL)
     {
         cout<<"Failed to Initialize Window in Game object\n"<<SDL_GetError();
@@ -26,14 +37,8 @@ int Game::init(char*title)
     if(!TheTextureManager::Instance()->load("res/sprite.bmp","animate",renderer) )
         return 0;
 
-    po=new Player();
-    go=new GameObject();
-
-    go->load(15,100,128,82,"animate");
-    po->load(100,0,128,82,"animate");
-    gameObjects.push_back(po);
-    gameObjects.push_back(go);//enemy1);
-
+    gameObjects.push_back(new Player(new LoaderParams(100,50,54,54,"animate")));
+    gameObjects.push_back(new Enemy(new LoaderParams(100,50,54,54,"animate")));
     cout<<"Initialize Successful\n";
     isRunning=true;
     return 1;//init completed without errors
@@ -63,7 +68,7 @@ void Game::render()
     for(std::vector<GameObject*>::size_type i=0;i!=gameObjects.size();i++)
     {
         cout<<"gameobject "<<i<<"th draw call \n";
-        gameObjects[i]->draw(renderer);
+        gameObjects[i]->draw();
          cout<<"gameobject "<<i<<"th draw call COMPLETE\n";
     }
     SDL_RenderPresent(renderer); //presenting result onto the Display
@@ -80,6 +85,10 @@ void Game::update()
 
 void Game::clean()
 {
+     for(vector<GameObject*>::size_type i=0;i!=gameObjects.size();i++)
+    {
+        delete gameObjects[i];
+    }
     SDL_DestroyWindow(window);
     SDL_DestroyRenderer(renderer);
     SDL_Quit();

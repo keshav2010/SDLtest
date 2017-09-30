@@ -36,11 +36,13 @@
 		</Compiler>
 		<Unit filename="include/Game.h" />
 		<Unit filename="include/GameObject.h" />
+		<Unit filename="include/LoaderParams.h" />
 		<Unit filename="include/Player.h" />
 		<Unit filename="include/TextureManager.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/GameObject.cpp" />
+		<Unit filename="src/LoaderParams.cpp" />
 		<Unit filename="src/Player.cpp" />
 		<Unit filename="src/TextureManager.cpp" />
 		<Extensions>

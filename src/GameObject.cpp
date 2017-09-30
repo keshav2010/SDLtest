@@ -3,7 +3,7 @@
 #include"TextureManager.h"
 #include<SDL2/SDL.h>
 using namespace std;
-
+/*
 void GameObject::load(int x,int y,int w,int h,string _textureID)
 {   //init positions
     posX=x;
@@ -34,3 +34,4 @@ void GameObject::clean()
     //handle clean
     cout<<"clean game object\n";
 }
+*/

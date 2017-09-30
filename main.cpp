@@ -3,16 +3,19 @@
 using namespace std;
 int SDL_main(int argc, char* argv[])
 {
-    Game *game=new Game;
-    game->init("LOL");
-    while( game->isRunning )
+
+    if(TheGame::Instance()->init("Chapter1",100,100,640,480))//,100,100,640,480,false))
     {
-            game->handleEvent();
-            game->update();
-            game->render();
-            SDL_Delay(12);
+        //cout<<"game init done\n";
     }
-    game->clean();
-    delete game;
+    else return 1;
+    while( TheGame::Instance()->isRunning)
+    {
+            TheGame::Instance()->handleEvent();
+            TheGame::Instance()->update();
+            TheGame::Instance()->render();
+            SDL_Delay(10);
+    }
+    TheGame::Instance()->clean();
     return 0;
 }

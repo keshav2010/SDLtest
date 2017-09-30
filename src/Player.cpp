@@ -2,20 +2,13 @@
 #include<iostream>
 using namespace std;
 
-void Player::load(int x,int y,int w,int h,string _textureID)
-{
-    GameObject::load(x,y,w,h,_textureID);
-}
-void Player::draw(SDL_Renderer* renderer)
-{
-    cout<<"PLAYER DRAW\n";
-    GameObject::draw(renderer);
-    cout<<"PLAYER DRAW COMPLETE\n";
-}
+Player::Player(const LoaderParams* params):SDLGameObject(params){};
+
+void Player::draw(){SDLGameObject::draw();}
+//void Player::draw(SDL_Renderer* renderer){GameObject::draw(renderer);}
 void Player::update()
 {
-    cout<<"Player UPDATE\n";
-    posY +=1;
+    posX+=1;
 }
 void Player::clean()
 {

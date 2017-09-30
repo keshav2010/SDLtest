@@ -15,30 +15,19 @@
     *Clean method for clearing used memory
 */
 #include<SDL2/SDL.h>
+#include "LoaderParams.h"
 #include<string>
 class GameObject
 {
     public:
-        virtual void load(int x,int y,int w,int h,std::string _textureID);
-        virtual void draw(SDL_Renderer* objectRenderer);
-        virtual void update();
-        virtual void clean();
-        /*
-            virtual keyword ensures overriden behaviour is used
-            GameObject* po = new Player();
-            if virtual is not used, po->update() will call method of GameObject class
-                if virtual is used, po->update() will call method of Player class
-        */
+        //virtual void load(int x,int y,int w,int h,std::string _textureID);
+        virtual void draw()=0;//virtual void draw(SDL_Renderer* objectRenderer);
+        virtual void update()=0;//virtual void update();
+        virtual void clean()=0;//virtual void clean();
     protected:
-        std::string textureID; //fetches texture which is mapped to this key
-        //SpriteSheet frame var
-        int currentFrame;
-        int currentRow;
-        //-end
-        int width;
-        int height;
-        int posX;//position in scene along X
-        int posY;// position in scene along Y
+        GameObject(const LoaderParams* params){}
+
+
 };
 
 #endif // GAMEOBJECT_H
