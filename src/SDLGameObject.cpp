@@ -2,7 +2,7 @@
 #include "TextureManager.h"
 #include "Vector2D.h"
 #include "Game.h"
-SDLGameObject::SDLGameObject(const LoaderParams* params) : GameObject(params),position(params->getX(),params->getY())
+SDLGameObject::SDLGameObject(const LoaderParams* params) : GameObject(params),acceleration(0,0),velocity(0,0),position(params->getX(),params->getY())
 {
     width=params->getWidth();
     height=params->getHeight();
@@ -15,4 +15,6 @@ void SDLGameObject::draw(){
 void SDLGameObject::clean(){
 }
 void SDLGameObject::update(){
+    velocity += acceleration;
+    position = position + velocity;
 }
