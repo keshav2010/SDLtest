@@ -7,8 +7,9 @@ void Enemy::draw(){SDLGameObject::draw();}
 //void Player::draw(SDL_Renderer* renderer){GameObject::draw(renderer);}
 void Enemy::update()
 {
-    posX+=1;
-    posY+=1;
+    position.setX( position.getX() + 1);
+    position.setY( position.getY() + 1);
+    //posX+=1;    posY+=1;
 }
 void Enemy::clean()
 {

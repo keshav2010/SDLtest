@@ -2,6 +2,7 @@
 #define SDLGAMEOBJECT_H
 
 #include "GameObject.h"
+#include "Vector2D.h"
 class SDLGameObject:public GameObject
 {
     public:
@@ -10,8 +11,7 @@ class SDLGameObject:public GameObject
         virtual void update();
         virtual void clean();
     protected:
-        int posX;
-        int posY;
+        Vector2D position;
         int width;
         int height;
         int currentRow;

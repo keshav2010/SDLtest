@@ -8,7 +8,7 @@ void Player::draw(){SDLGameObject::draw();}
 //void Player::draw(SDL_Renderer* renderer){GameObject::draw(renderer);}
 void Player::update()
 {
-    posX+=1;
+    position.setX( position.getX() + 1);
 }
 void Player::clean()
 {

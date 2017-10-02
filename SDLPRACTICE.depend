@@ -6,7 +6,7 @@
 1505576025 d:\codeblocks_projects\sdlpractice\game.h
 	<SDL2/SDL.h>
 
-1506805385 source:d:\codeblocks_projects\sdlpractice\src\game.cpp
+1506805586 source:d:\codeblocks_projects\sdlpractice\src\game.cpp
 	"Game.h"
 	<iostream>
 	<SDL2/SDL.h>
@@ -59,17 +59,18 @@
 1506804833 d:\codeblocks_projects\sdlpractice\include\player.h
 	"SDLGameObject.h"
 
-1506804823 source:d:\codeblocks_projects\sdlpractice\src\player.cpp
+1506971956 source:d:\codeblocks_projects\sdlpractice\src\player.cpp
 	"Player.h"
 	<iostream>
 
 1506686077 d:\codeblocks_projects\sdlpractice\include\loaderparams.h
 	<string>
 
-1506803979 d:\codeblocks_projects\sdlpractice\include\sdlgameobject.h
+1506971719 d:\codeblocks_projects\sdlpractice\include\sdlgameobject.h
 	"GameObject.h"
+	"Vector2D.h"
 
-1506805002 source:d:\codeblocks_projects\sdlpractice\src\enemy.cpp
+1506971936 source:d:\codeblocks_projects\sdlpractice\src\enemy.cpp
 	"Enemy.h"
 
 1506804639 d:\codeblocks_projects\sdlpractice\include\enemy.h
@@ -78,8 +79,15 @@
 1506805241 source:d:\codeblocks_projects\sdlpractice\src\loaderparams.cpp
 	"LoaderParams.h"
 
-1506805509 source:d:\codeblocks_projects\sdlpractice\src\sdlgameobject.cpp
+1506971970 source:d:\codeblocks_projects\sdlpractice\src\sdlgameobject.cpp
 	"SDLGameObject.h"
 	"TextureManager.h"
+	"Vector2D.h"
 	"Game.h"
+
+1506971367 d:\codeblocks_projects\sdlpractice\include\vector2d.h
+	<math.h>
+
+1506971672 source:d:\codeblocks_projects\sdlpractice\src\vector2d.cpp
+	"Vector2D.h"
 
