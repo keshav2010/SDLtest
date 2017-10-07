@@ -3,6 +3,7 @@
 #include<SDL2/SDL.h>
 #include<SDL2/SDL_events.h>
 #include<SDL2/SDL_keyboard.h>
+#include "InputHandler.h"
 using namespace std;
 Game* Game::gameInstance=0;
 Game::Game()
@@ -18,6 +19,7 @@ Game* Game::Instance()
     }
     return gameInstance;
 }
+
 SDL_Renderer* Game::getRenderer()const {return renderer;}
 int Game::init(char*title,int winX,int winY,int winW,int winH)
 {
@@ -46,6 +48,9 @@ int Game::init(char*title,int winX,int winY,int winW,int winH)
 void Game::handleEvent()
 {
     cout<<"HandleEvent Called\n";
+
+    TheInputHandler::Instance()->update();
+    /*
     SDL_Event evt;
 
 	if(SDL_PollEvent(&evt))
@@ -60,6 +65,7 @@ void Game::handleEvent()
 				break;
 		}
 	}
+	*/
 }
 void Game::render()
 {
@@ -87,6 +93,7 @@ void Game::clean()
 {
      for(vector<GameObject*>::size_type i=0;i!=gameObjects.size();i++)
     {
+        gameObjects[i]->clean();
         delete gameObjects[i];
     }
     SDL_DestroyWindow(window);

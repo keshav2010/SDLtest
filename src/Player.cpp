@@ -1,3 +1,4 @@
+#include "InputHandler.h"
 #include "Player.h"
 #include<iostream>
 using namespace std;
@@ -8,9 +9,15 @@ void Player::draw(){SDLGameObject::draw();}
 //void Player::draw(SDL_Renderer* renderer){GameObject::draw(renderer);}
 void Player::update()
 {
-    acceleration.setY(0.1);
+    if(TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_LEFT))
+        velocity.setX(-1);
+    if(TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_RIGHT))
+        velocity.setX(1);
+    if(TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_UP))
+        velocity.setY(-1);
+    if(TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_DOWN))
+        velocity.setY(1);
     SDLGameObject::update();
-    //position.setX( position.getX() + 1);
 }
 void Player::clean()
 {

@@ -19,9 +19,8 @@ int SDL_main(int argc, char* argv[])
             TheGame::Instance()->handleEvent();
             TheGame::Instance()->update();
             TheGame::Instance()->render();
-
             frameTime = SDL_GetTicks()-frameStart;
-            if(frameTime < DELAY_TIME {
+            if(frameTime < DELAY_TIME) {
                //this is very idle time that is being wasted here
                SDL_Delay((int)(DELAY_TIME-frameTime));
             }

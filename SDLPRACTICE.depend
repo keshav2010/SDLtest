@@ -1,19 +1,20 @@
 # depslib dependency file v1.0
-1506805411 source:d:\codeblocks_projects\sdlpractice\main.cpp
+1507409285 source:d:\codeblocks_projects\sdlpractice\main.cpp
 	<SDL2/SDL.h>
 	<Game.h>
 
 1505576025 d:\codeblocks_projects\sdlpractice\game.h
 	<SDL2/SDL.h>
 
-1506805586 source:d:\codeblocks_projects\sdlpractice\src\game.cpp
+1507411599 source:d:\codeblocks_projects\sdlpractice\src\game.cpp
 	"Game.h"
 	<iostream>
 	<SDL2/SDL.h>
 	<SDL2/SDL_events.h>
 	<SDL2/SDL_keyboard.h>
+	"InputHandler.h"
 
-1506805602 d:\codeblocks_projects\sdlpractice\include\game.h
+1507410353 d:\codeblocks_projects\sdlpractice\include\game.h
 	"GameObject.h"
 	"Player.h"
 	<TextureManager.h>
@@ -59,7 +60,8 @@
 1506804833 d:\codeblocks_projects\sdlpractice\include\player.h
 	"SDLGameObject.h"
 
-1506972859 source:d:\codeblocks_projects\sdlpractice\src\player.cpp
+1507411596 source:d:\codeblocks_projects\sdlpractice\src\player.cpp
+	"InputHandler.h"
 	"Player.h"
 	<iostream>
 
@@ -79,7 +81,7 @@
 1506805241 source:d:\codeblocks_projects\sdlpractice\src\loaderparams.cpp
 	"LoaderParams.h"
 
-1506972812 source:d:\codeblocks_projects\sdlpractice\src\sdlgameobject.cpp
+1507128623 source:d:\codeblocks_projects\sdlpractice\src\sdlgameobject.cpp
 	"SDLGameObject.h"
 	"TextureManager.h"
 	"Vector2D.h"
@@ -90,4 +92,14 @@
 
 1506972069 source:d:\codeblocks_projects\sdlpractice\src\vector2d.cpp
 	"Vector2D.h"
+
+1507412109 d:\codeblocks_projects\sdlpractice\include\inputhandler.h
+	<SDL2/SDL.h>
+	<vector>
+	"Vector2D.h"
+
+1507412385 source:d:\codeblocks_projects\sdlpractice\src\inputhandler.cpp
+	"InputHandler.h"
+	<iostream>
+	"Game.h"
 

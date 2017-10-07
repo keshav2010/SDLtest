@@ -16,5 +16,5 @@ void SDLGameObject::clean(){
 }
 void SDLGameObject::update(){
     velocity += acceleration;
-    position = position + velocity;
+    position += velocity;
 }
