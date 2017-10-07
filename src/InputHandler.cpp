@@ -8,6 +8,7 @@ InputHandler::InputHandler(){
     mouseButtonStates.push_back(false);
     mouseButtonStates.push_back(false);
     mouseButtonStates.push_back(false);
+    mousePosition=new Vector2D(0,0);
 }
 InputHandler* InputHandler::Instance()
 {
@@ -19,6 +20,10 @@ InputHandler* InputHandler::Instance()
 Vector2D* InputHandler::getMousePosition()
 {
     return mousePosition;
+}
+void InputHandler::clean()
+{
+    delete mousePosition;
 }
 bool InputHandler::isKeyDown(SDL_Scancode key)
 {
