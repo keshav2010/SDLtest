@@ -15,6 +15,10 @@ class MenuState : public GameState
 
     private:
         static const std::string menuID;
+
+        //call back fxns for menu items
+        static void s_menuToPlay();
+        static void s_exitFromMenu();
 };
 
 #endif // MENUSTATE_H

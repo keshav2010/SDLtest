@@ -6,7 +6,7 @@
 1505576025 d:\codeblocks_projects\sdlpractice\game.h
 	<SDL2/SDL.h>
 
-1507745650 source:d:\codeblocks_projects\sdlpractice\src\game.cpp
+1507755783 source:d:\codeblocks_projects\sdlpractice\src\game.cpp
 	"Game.h"
 	<iostream>
 	<SDL2/SDL.h>
@@ -15,7 +15,7 @@
 	"InputHandler.h"
 	"GameStateMachine.h"
 
-1507418743 d:\codeblocks_projects\sdlpractice\include\game.h
+1507755761 d:\codeblocks_projects\sdlpractice\include\game.h
 	"GameObject.h"
 	"Player.h"
 	<TextureManager.h>
@@ -83,7 +83,7 @@
 1506805241 source:d:\codeblocks_projects\sdlpractice\src\loaderparams.cpp
 	"LoaderParams.h"
 
-1507128623 source:d:\codeblocks_projects\sdlpractice\src\sdlgameobject.cpp
+1507750128 source:d:\codeblocks_projects\sdlpractice\src\sdlgameobject.cpp
 	"SDLGameObject.h"
 	"TextureManager.h"
 	"Vector2D.h"
@@ -117,7 +117,7 @@
 1507417860 d:\codeblocks_projects\sdlpractice\include\playstate.h
 	"GameState.h"
 
-1507749027 d:\codeblocks_projects\sdlpractice\include\menustate.h
+1507751991 d:\codeblocks_projects\sdlpractice\include\menustate.h
 	<vector>
 	"GameObject.h"
 	"GameState.h"
@@ -129,7 +129,7 @@
 	"GameStateMachine.h"
 	<iostream>
 
-1507749995 source:d:\codeblocks_projects\sdlpractice\src\menustate.cpp
+1507755841 source:d:\codeblocks_projects\sdlpractice\src\menustate.cpp
 	"MenuState.h"
 	"TextureManager.h"
 	"Game.h"
@@ -140,11 +140,11 @@
 	<iostream>
 	"PlayState.h"
 
-1507749343 source:d:\codeblocks_projects\sdlpractice\src\menubutton.cpp
+1507751896 source:d:\codeblocks_projects\sdlpractice\src\menubutton.cpp
 	"MenuButton.h"
 	"InputHandler.h"
 	<iostream>
 
-1507749159 d:\codeblocks_projects\sdlpractice\include\menubutton.h
+1507751799 d:\codeblocks_projects\sdlpractice\include\menubutton.h
 	"SDLGameObject.h"
 

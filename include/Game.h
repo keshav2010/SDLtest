@@ -16,6 +16,7 @@ class Game
         void render();
         void update();
         void clean();
+        GameStateMachine* getGameStateMachine();
         static Game* Instance();
         SDL_Renderer* getRenderer() const;
 

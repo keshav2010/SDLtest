@@ -2,7 +2,7 @@
 #include "InputHandler.h"
 #include<iostream>
 using namespace std;
-MenuButton::MenuButton(const LoaderParams* params): SDLGameObject(params)
+MenuButton::MenuButton(const LoaderParams* params,void (*callback)()): SDLGameObject(params),m_callback(callback)
 {
     currentFrame = MOUSE_OUT;
 }
@@ -20,6 +20,13 @@ void MenuButton::update()
         if(TheInputHandler::Instance()->getMouseButtonState(LEFT))
         {
             currentFrame = CLICKED;
+            m_callback();//call our callback fxn
+            bReleased = false;
+        }
+        else if(!TheInputHandler::Instance()->getMouseButtonState(LEFT))
+        {
+            bReleased =true;
+            currentFrame = MOUSE_OVER;
         }
     }
     else currentFrame = MOUSE_OUT;

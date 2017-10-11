@@ -78,6 +78,10 @@ void Game::render()
     SDL_RenderPresent(renderer); //presenting result onto the Display
     cout<<"RENDER DONE\n";
 }
+GameStateMachine* Game::getGameStateMachine()
+{
+    return gameStateMachine;
+}
 void Game::update()
 {
     gameStateMachine->update();

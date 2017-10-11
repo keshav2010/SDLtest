@@ -24,14 +24,24 @@ void MenuState::render()
         gameObjects[i]->draw();
     }
 }
+void MenuState::s_menuToPlay()
+{
+    cout<<"play button clicked\n";
+    TheGame::Instance()->getGameStateMachine()->changeState(new PlayState());
+}
+void MenuState::s_exitFromMenu()
+{
+    cout<<"exit from menu\n";
+    TheGame::Instance()->clean();
+}
 bool MenuState::onEnter()
 {
     if(!TheTextureManager::Instance()->load("res/play_button.bmp","playbutton",TheGame::Instance()->getRenderer()))
         return false;
     if(!TheTextureManager::Instance()->load("res/exit_button.bmp","exitbutton",TheGame::Instance()->getRenderer()))
         return false;
-    GameObject* button1= new MenuButton(new LoaderParams(100,100,150,100,"playbutton"));
-    GameObject* button2 = new MenuButton(new LoaderParams(100,300,150,100,"exitbutton"));
+    GameObject* button1= new MenuButton(new LoaderParams(100,100,150,100,"playbutton"),s_menuToPlay);
+    GameObject* button2 = new MenuButton(new LoaderParams(100,300,150,100,"exitbutton"),s_exitFromMenu);
     gameObjects.push_back(button1);
     gameObjects.push_back(button2);
     cout<<"entering menustate\n";
