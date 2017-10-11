@@ -6,6 +6,7 @@
 #include"Enemy.h"
 #include<SDL2/SDL.h>
 #include<vector>
+#include "GameStateMachine.h"
 class Game
 {
     public:
@@ -25,6 +26,8 @@ class Game
 
         SDL_Renderer *renderer;
         SDL_Window *window;
+
+        GameStateMachine* gameStateMachine;
 
 };
 typedef Game TheGame;

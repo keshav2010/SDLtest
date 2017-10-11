@@ -22,6 +22,10 @@ goto the mentioned link to explore reason
      }
      return s_pInstance;
  }
+ void TextureManager::clearFromTextureMap(string id)
+ {
+     textureMap.erase(id);
+ }
 bool TextureManager::load(string fileName,string id,SDL_Renderer* renderer)
 {
 

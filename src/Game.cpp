@@ -4,6 +4,8 @@
 #include<SDL2/SDL_events.h>
 #include<SDL2/SDL_keyboard.h>
 #include "InputHandler.h"
+#include "GameStateMachine.h"
+
 using namespace std;
 Game* Game::gameInstance=0;
 Game::Game()
@@ -39,8 +41,13 @@ int Game::init(char*title,int winX,int winY,int winW,int winH)
     if(!TheTextureManager::Instance()->load("res/sprite.bmp","animate",renderer) )
         return 0;
 
+
     gameObjects.push_back(new Player(new LoaderParams(100,50,54,54,"animate")));
     gameObjects.push_back(new Enemy(new LoaderParams(100,50,54,54,"animate")));
+
+    gameStateMachine=new GameStateMachine();
+    gameStateMachine->changeState( new MenuState() );
+
     cout<<"Initialize Successful\n";
     isRunning=true;
     return 1;//init completed without errors
@@ -48,44 +55,38 @@ int Game::init(char*title,int winX,int winY,int winW,int winH)
 void Game::handleEvent()
 {
     cout<<"HandleEvent Called\n";
-
     TheInputHandler::Instance()->update();
-    /*
-    SDL_Event evt;
+    if(TheInputHandler::Instance()->isKeyDown(SDL_SCANCODE_RETURN))
+    {   cout<<"voileta----------------------------------------------------\n";
+        gameStateMachine->changeState(new PlayState());
+    }
 
-	if(SDL_PollEvent(&evt))
-	{
-		switch(evt.type)
-		{
-			case SDL_QUIT:
-				isRunning=false;
-				cout<<" QUIT EVENT \n";
-				break;
-            default:
-				break;
-		}
-	}
-	*/
 }
 void Game::render()
 {
     cout<<"RENDERING\n";
     SDL_RenderClear(renderer);
+    gameStateMachine->render();
+    /*
     for(std::vector<GameObject*>::size_type i=0;i!=gameObjects.size();i++)
     {
         cout<<"gameobject "<<i<<"th draw call \n";
         gameObjects[i]->draw();
          cout<<"gameobject "<<i<<"th draw call COMPLETE\n";
     }
+    */
     SDL_RenderPresent(renderer); //presenting result onto the Display
     cout<<"RENDER DONE\n";
 }
 void Game::update()
 {
+    gameStateMachine->update();
+    /*
     for(vector<GameObject*>::size_type i=0;i!=gameObjects.size();i++)
     {
         gameObjects[i]->update();
     }
+    */
     cout<<"UPDATING\n";
 }
 
@@ -94,7 +95,6 @@ void Game::clean()
      for(vector<GameObject*>::size_type i=0;i!=gameObjects.size();i++)
     {
         gameObjects[i]->clean();
-        delete gameObjects[i];
     }
     SDL_DestroyWindow(window);
     SDL_DestroyRenderer(renderer);
