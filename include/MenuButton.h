@@ -5,12 +5,14 @@
 class MenuButton:public SDLGameObject
 {
     public:
-        MenuButton(const LoaderParams* params,void (*callback)());
+        MenuButton(const LoaderParams* params,void (*callback)() );
         virtual void draw();
         virtual void update();
         virtual void clean();
         void (*m_callback)(); //fxn pointer
-        bool bReleased;
+
+        //to handle clicking
+        bool bReleased; //MouseButton-Released
     private:
         enum button_state
         {

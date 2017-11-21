@@ -41,6 +41,7 @@
 		<Unit filename="include/GameStateMachine.h" />
 		<Unit filename="include/InputHandler.h" />
 		<Unit filename="include/LoaderParams.h" />
+		<Unit filename="include/MenuButton.h" />
 		<Unit filename="include/MenuState.h" />
 		<Unit filename="include/PlayState.h" />
 		<Unit filename="include/Player.h" />
@@ -55,6 +56,7 @@
 		<Unit filename="src/GameStateMachine.cpp" />
 		<Unit filename="src/InputHandler.cpp" />
 		<Unit filename="src/LoaderParams.cpp" />
+		<Unit filename="src/MenuButton.cpp" />
 		<Unit filename="src/MenuState.cpp" />
 		<Unit filename="src/PlayState.cpp" />
 		<Unit filename="src/Player.cpp" />

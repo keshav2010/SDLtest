@@ -1,6 +1,8 @@
 #ifndef PLAYSTATE_H
 #define PLAYSTATE_H
 #include "GameState.h"
+#include<vector>
+#include "GameObject.h"
 
 class PlayState:public GameState
 {
@@ -14,6 +16,7 @@ class PlayState:public GameState
     private:
         static const std::string playID;
 
+        std::vector<GameObject*> m_gameObjects;
 };
 
 #endif // PLAYSTATE_H

@@ -1,12 +1,13 @@
 # depslib dependency file v1.0
-1507409285 source:d:\codeblocks_projects\sdlpractice\main.cpp
+1511272464 source:d:\codeblocks_projects\sdlpractice\main.cpp
 	<SDL2/SDL.h>
 	<Game.h>
+	<iostream>
 
 1505576025 d:\codeblocks_projects\sdlpractice\game.h
 	<SDL2/SDL.h>
 
-1507755783 source:d:\codeblocks_projects\sdlpractice\src\game.cpp
+1511251163 source:d:\codeblocks_projects\sdlpractice\src\game.cpp
 	"Game.h"
 	<iostream>
 	<SDL2/SDL.h>
@@ -74,7 +75,7 @@
 	"GameObject.h"
 	"Vector2D.h"
 
-1506971936 source:d:\codeblocks_projects\sdlpractice\src\enemy.cpp
+1511271913 source:d:\codeblocks_projects\sdlpractice\src\enemy.cpp
 	"Enemy.h"
 
 1506804639 d:\codeblocks_projects\sdlpractice\include\enemy.h
@@ -83,7 +84,7 @@
 1506805241 source:d:\codeblocks_projects\sdlpractice\src\loaderparams.cpp
 	"LoaderParams.h"
 
-1507750128 source:d:\codeblocks_projects\sdlpractice\src\sdlgameobject.cpp
+1511263779 source:d:\codeblocks_projects\sdlpractice\src\sdlgameobject.cpp
 	"SDLGameObject.h"
 	"TextureManager.h"
 	"Vector2D.h"
@@ -95,12 +96,12 @@
 1506972069 source:d:\codeblocks_projects\sdlpractice\src\vector2d.cpp
 	"Vector2D.h"
 
-1507412109 d:\codeblocks_projects\sdlpractice\include\inputhandler.h
+1511268262 d:\codeblocks_projects\sdlpractice\include\inputhandler.h
 	<SDL2/SDL.h>
 	<vector>
 	"Vector2D.h"
 
-1507413049 source:d:\codeblocks_projects\sdlpractice\src\inputhandler.cpp
+1511268688 source:d:\codeblocks_projects\sdlpractice\src\inputhandler.cpp
 	"InputHandler.h"
 	<iostream>
 	"Game.h"
@@ -114,8 +115,10 @@
 1507419386 d:\codeblocks_projects\sdlpractice\include\gamestate.h
 	<string>
 
-1507417860 d:\codeblocks_projects\sdlpractice\include\playstate.h
+1511262215 d:\codeblocks_projects\sdlpractice\include\playstate.h
 	"GameState.h"
+	<vector>
+	"GameObject.h"
 
 1507751991 d:\codeblocks_projects\sdlpractice\include\menustate.h
 	<vector>
@@ -125,26 +128,42 @@
 1507419238 source:d:\codeblocks_projects\sdlpractice\src\gamestate.cpp
 	"GameState.h"
 
-1507745568 source:d:\codeblocks_projects\sdlpractice\src\gamestatemachine.cpp
+1511271310 source:d:\codeblocks_projects\sdlpractice\src\gamestatemachine.cpp
 	"GameStateMachine.h"
 	<iostream>
 
-1507755841 source:d:\codeblocks_projects\sdlpractice\src\menustate.cpp
+1511257791 source:d:\codeblocks_projects\sdlpractice\src\menustate.cpp
 	"MenuState.h"
 	"TextureManager.h"
 	"Game.h"
 	<iostream>
 	"MenuButton.h"
 
-1507418061 source:d:\codeblocks_projects\sdlpractice\src\playstate.cpp
+1511272048 source:d:\codeblocks_projects\sdlpractice\src\playstate.cpp
 	<iostream>
 	"PlayState.h"
+	"TextureManager.h"
+	"Game.h"
+	"InputHandler.h"
+	"PauseState.h"
 
-1507751896 source:d:\codeblocks_projects\sdlpractice\src\menubutton.cpp
+1511257236 source:d:\codeblocks_projects\sdlpractice\src\menubutton.cpp
 	"MenuButton.h"
 	"InputHandler.h"
 	<iostream>
 
-1507751799 d:\codeblocks_projects\sdlpractice\include\menubutton.h
+1511257138 d:\codeblocks_projects\sdlpractice\include\menubutton.h
 	"SDLGameObject.h"
+
+1511271382 source:d:\codeblocks_projects\sdlpractice\src\pausestate.cpp
+	"PauseState.h"
+	"Game.h"
+	"MenuButton.h"
+	<iostream>
+	"InputHandler.h"
+
+1511269930 d:\codeblocks_projects\sdlpractice\include\pausestate.h
+	<GameState.h>
+	<vector>
+	<GameObject.h>
 

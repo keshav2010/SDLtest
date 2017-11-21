@@ -25,19 +25,22 @@ Game* Game::Instance()
 SDL_Renderer* Game::getRenderer()const {return renderer;}
 int Game::init(char*title,int winX,int winY,int winW,int winH)
 {
+    //init main window
     window = SDL_CreateWindow(title,winX,winY,winW,winH,SDL_WINDOW_RESIZABLE);
     if(window==NULL)
     {
         cout<<"Failed to Initialize Window in Game object\n"<<SDL_GetError();
         return 0;
     }
+
+    //init renderer
     renderer = SDL_CreateRenderer(window,-1,SDL_RENDERER_ACCELERATED);//hardware accelerated
     if(renderer==NULL)
     {
         cout<<"Unable to Create Renderer for window in Game Object \n"<<SDL_GetError();
         return 0;
     }
-    //textureManager.load("res/sprite.bmp","animate",renderer);
+    //if textureManager fails to load the sprite, terminate function
     if(!TheTextureManager::Instance()->load("res/sprite.bmp","animate",renderer) )
         return 0;
 
@@ -45,6 +48,7 @@ int Game::init(char*title,int winX,int winY,int winW,int winH)
     gameObjects.push_back(new Player(new LoaderParams(100,50,54,54,"animate")));
     gameObjects.push_back(new Enemy(new LoaderParams(100,50,54,54,"animate")));
 
+    //init game state machine to be Menu state
     gameStateMachine=new GameStateMachine();
     gameStateMachine->changeState( new MenuState() );
 

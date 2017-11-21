@@ -13,13 +13,13 @@ string MenuState::getStateID() const
 }
 void MenuState::update()
 {
-    for(int i=0;i< gameObjects.size();i++){
+    for(int i=0; i<gameObjects.size(); i++){
         gameObjects[i]->update();
     }
 }
 void MenuState::render()
 {
-    for(int i=0;i<gameObjects.size();i++)
+    for(int i=0; i<gameObjects.size(); i++)
     {
         gameObjects[i]->draw();
     }
@@ -33,15 +33,18 @@ void MenuState::s_exitFromMenu()
 {
     cout<<"exit from menu\n";
     TheGame::Instance()->clean();
+    exit(0);
 }
 bool MenuState::onEnter()
 {
-    if(!TheTextureManager::Instance()->load("res/play_button.bmp","playbutton",TheGame::Instance()->getRenderer()))
+    if(!TheTextureManager::Instance()->load("res/play_button.bmp","playbutton", TheGame::Instance()->getRenderer()))
         return false;
-    if(!TheTextureManager::Instance()->load("res/exit_button.bmp","exitbutton",TheGame::Instance()->getRenderer()))
+    if(!TheTextureManager::Instance()->load("res/exit_button.bmp","exitbutton", TheGame::Instance()->getRenderer()))
         return false;
-    GameObject* button1= new MenuButton(new LoaderParams(100,100,150,100,"playbutton"),s_menuToPlay);
-    GameObject* button2 = new MenuButton(new LoaderParams(100,300,150,100,"exitbutton"),s_exitFromMenu);
+
+    //MenuButton(LoaderParams* , void (*callback)() )
+    GameObject* button1= new MenuButton(new LoaderParams(100,100,150,100,"playbutton"), s_menuToPlay);
+    GameObject* button2 = new MenuButton(new LoaderParams(100,300,150,100,"exitbutton"), s_exitFromMenu);
     gameObjects.push_back(button1);
     gameObjects.push_back(button2);
     cout<<"entering menustate\n";

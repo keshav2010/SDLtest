@@ -16,9 +16,11 @@ public:
     static InputHandler* Instance();
     void update();
     void clean();
+    void reset();//resets mouse states
     Vector2D* getMousePosition();
     bool getMouseButtonState(int buttonNumber);
     bool isKeyDown(SDL_Scancode key);
+
 private:
     InputHandler();
     ~InputHandler();

@@ -12,7 +12,7 @@ void GameStateMachine::popState()
     {
         if( stack_gameStates.back()->onExit() )
         {
-            delete stack_gameStates.back();
+            //delete stack_gameStates.back();
             stack_gameStates.pop_back();
         }
     }
@@ -29,10 +29,11 @@ void GameStateMachine::changeState(GameState* gameState)
         }
         if(stack_gameStates.back()->onExit())
         {
-            delete stack_gameStates.back();
+            //delete stack_gameStates.back();
             stack_gameStates.pop_back();
         }
     }
+
     cout<<"PUSHING BACK\n";
     stack_gameStates.push_back(gameState);//adding new state
     stack_gameStates.back()->onEnter();

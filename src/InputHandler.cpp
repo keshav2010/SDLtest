@@ -76,3 +76,9 @@ bool InputHandler::getMouseButtonState(int buttonNumber)
 {
     return mouseButtonStates[buttonNumber];
 }
+void InputHandler::reset()
+{
+    //set all button states as false
+    for(int i=0;i<mouseButtonStates.size();i++)
+        mouseButtonStates[i]=false;
+}
