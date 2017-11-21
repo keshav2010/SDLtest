@@ -39,8 +39,8 @@ bool PlayState::onEnter()
     if(!TheTextureManager::Instance()->load("res/helicopter.bmp","helicopter2",TheGame::Instance()->getRenderer()))
         return false;
 
-    GameObject* player = new Player(new LoaderParams(50,50,99,50,"helicopter"));
-    GameObject* enemy = new Enemy(new LoaderParams(100,100,99,50,"helicopter2"));
+    GameObject* player = new Player(new LoaderParams(50,50,224,115, "helicopter"));
+    GameObject* enemy = new Enemy(new LoaderParams(100,100,224,115, "helicopter2"));
     m_gameObjects.push_back(player);
     m_gameObjects.push_back(enemy);
     cout<<"enter playstate "<<m_gameObjects.size()<<" count of objectVector \n";

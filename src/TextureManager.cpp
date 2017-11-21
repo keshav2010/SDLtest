@@ -51,14 +51,13 @@ void TextureManager::draw(string id,int x,int y,int width,int height, SDL_Render
     srcRect.h=destRect.h=height;
     destRect.x=x;
     destRect.y=y;
-
     SDL_RenderCopyEx(renderer, textureMap[id], &srcRect, &destRect, angle,0, flip);
 }
 /*
     Intuition for the src AND dest Rectangles
 
-    by changing x,y,w,h of sourceRect we can clip the sprite that is being imported
-    by changing the x,y,w,h of destRect we can alter the dimensions of the sprite and nothing will be clipped but only stretched
+    by changing x,y,w,h of sourceRect we can clip the texture image that is being imported
+    by changing the x,y,w,h of destRect we can alter the dimensions of the image and nothing will be clipped but only stretched
 */
 void TextureManager::drawFrame(string id,int x,int y,int width,int height,int currentRow,int currentFrame,SDL_Renderer* renderer,SDL_RendererFlip flip,int angle)
 {
