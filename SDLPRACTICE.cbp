@@ -34,9 +34,11 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/AnimatedGraphic.h" />
 		<Unit filename="include/Enemy.h" />
 		<Unit filename="include/Game.h" />
 		<Unit filename="include/GameObject.h" />
+		<Unit filename="include/GameOverState.h" />
 		<Unit filename="include/GameState.h" />
 		<Unit filename="include/GameStateMachine.h" />
 		<Unit filename="include/InputHandler.h" />
@@ -50,9 +52,11 @@
 		<Unit filename="include/TextureManager.h" />
 		<Unit filename="include/Vector2D.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/AnimatedGraphic.cpp" />
 		<Unit filename="src/Enemy.cpp" />
 		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/GameObject.cpp" />
+		<Unit filename="src/GameOverState.cpp" />
 		<Unit filename="src/GameState.cpp" />
 		<Unit filename="src/GameStateMachine.cpp" />
 		<Unit filename="src/InputHandler.cpp" />

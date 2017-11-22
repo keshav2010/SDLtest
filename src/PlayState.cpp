@@ -4,6 +4,7 @@
 #include "Game.h"
 #include "InputHandler.h"
 #include "PauseState.h"
+#include "GameOverState.h"
 using namespace std;
 const string PlayState::playID="PLAY";
 
@@ -20,6 +21,10 @@ void PlayState::update()
     for(int i=0;i<m_gameObjects.size();i++)
     {
         m_gameObjects[i]->update();
+    }
+    if(checkCollision(dynamic_cast<SDLGameObject*>(m_gameObjects[0]), dynamic_cast<SDLGameObject*>(m_gameObjects[1]) ) )
+    {
+        TheGame::Instance()->getGameStateMachine()->pushState(new GameOverState());
     }
 }
 void PlayState::render()
@@ -53,5 +58,31 @@ bool PlayState::onExit()
     m_gameObjects.clear();
     TheTextureManager::Instance()->clearFromTextureMap("helicopter");
     cout<<"exit playstate\n";
+    return true;
+}
+
+
+bool PlayState::checkCollision(SDLGameObject *p1, SDLGameObject *p2)
+{
+    int leftA, leftB;
+    int rightA, rightB;
+    int topA, topB;
+    int bottomA, bottomB;
+
+    //get side of rectA
+    leftA = p1->position.getX();
+    rightA = p1->position.getX() + p1->width;
+    topA = p1->position.getY();
+    bottomA = p1->position.getY() + p1->height;
+
+    //GET SIDE OF RECT-B
+    leftB = p2->position.getX();
+    rightB = p2->position.getX() + p2->width;
+    topB = p2->position.getY();
+    bottomB = p2->position.getY() + p2->height;
+
+    if(bottomA<=bottomB || topA >= bottomB || rightA <= leftB || leftA >= rightB)
+        return false;
+
     return true;
 }

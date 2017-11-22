@@ -3,7 +3,7 @@
 #include "GameState.h"
 #include<vector>
 #include "GameObject.h"
-
+#include "SDLGameObject.h"
 class PlayState:public GameState
 {
     public:
@@ -11,6 +11,7 @@ class PlayState:public GameState
     virtual void render();
     virtual bool onEnter();
     virtual bool onExit();
+    bool checkCollision(SDLGameObject *p1, SDLGameObject *p2);
 
     virtual std::string getStateID() const;
     private:

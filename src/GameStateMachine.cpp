@@ -42,14 +42,10 @@ void GameStateMachine::changeState(GameState* gameState)
 void GameStateMachine::update()
 {
     if(!stack_gameStates.empty())
-    {
         stack_gameStates.back()->update();
-    }
 }
 void GameStateMachine::render()
 {
     if(!stack_gameStates.empty())
-    {
         stack_gameStates.back()->render();
-    }
 }

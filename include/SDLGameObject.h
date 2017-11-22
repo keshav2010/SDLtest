@@ -10,7 +10,6 @@ class SDLGameObject:public GameObject
         virtual void draw();
         virtual void update();
         virtual void clean();
-    protected:
 
         Vector2D position;
         Vector2D velocity;
@@ -18,6 +17,8 @@ class SDLGameObject:public GameObject
 
         int width;
         int height;
+         protected:
+
         int currentRow;
         int currentFrame;
         std::string textureID;
