@@ -1,3 +1,4 @@
 #SDL2.0.5
 
-Use of pointers of type PlayerObject or EnemyObject causing application to crash
+A Game framework written in C++ , Simple DirectMedia Layer (SDL) 
+https://www.libsdl.org/
